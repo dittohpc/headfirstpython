@@ -9,9 +9,15 @@ def read_swim_data(filename):
     converts = []
 
     for t in times:
-        minutes, rest = t.split(":")
-        seconds, hundredths = rest.split(".")
-        converts.append(((int(minutes) * 60 * 100) + (int(seconds) * 100) + int(hundredths)))
+        if (":" in t):
+            minutes, rest = t.split(":")
+            seconds, hundredths = rest.split(".")
+            converts.append(((int(minutes) * 60 * 100) + (int(seconds) * 100) + int(hundredths)))
+        else:
+            minutes = 0
+            seconds, hundredths = t.split(".")
+        converts.append((int(minutes) * 60 * 100) + (int(seconds) * 100) + int(hundredths))
+
     average = statistics.mean(converts)
     mins_secs, hundredths = str(round(average / 100, 2)).split(".")
     mins_secs = int(mins_secs)
