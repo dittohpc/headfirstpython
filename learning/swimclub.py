@@ -1,7 +1,8 @@
 import statistics
 import hfpy_utils
 
-CHARTS = "charts/"
+# CHARTS = "charts/"
+CHARTS = "templates/"
 FOLDER = "swimdata/"
 
 
